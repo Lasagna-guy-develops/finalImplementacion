@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<style>
+html,body {
+  height:100%;
+  width:100%;
+  margin:0;
+}
+body {
+  display:flex;
+}
+form {
+  margin:auto;/* nice thing of auto margin if display:flex; it center both horizontal and vertical :) */
+}
+div{
+  	display: block;
+    margin-bottom: auto;
+    margin-top: auto;
+  	margin-left: auto;
+	margin-right: auto;
+}
+input:invalid {
+  border: 2px dashed red;
+}
+input:valid {
+  border: 1px solid black;
+}
+input:invalid:required {
+  border: 1px solid greenyellow;
+}
+</style>
+
+<body>
+<div>
+{% block content %}
+    <label>Factorial: {{ valor }}</label><br><br>
+
+        <form action="{{ url_for('factorialBP.showf') }}">
+        <input type="submit" value="Factorial">
+        </form><br>
+        <form action="{{ url_for('menu') }}">
+        <input type="submit" value="Menu">
+        </form>
+
+{% endblock %}
+</div>
+</body>
+</html>

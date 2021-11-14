@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Final implementación - Menú principal</title>
+</head>
+<style>
+html,body {
+  height:100%;
+  width:100%;
+  margin:0;
+}
+body {
+  display:flex;
+}
+form {
+  margin:auto;/* nice thing of auto margin if display:flex; it center both horizontal and vertical :) */
+}
+div{
+  	display: block;
+    margin-bottom: auto;
+    margin-top: auto;
+  	margin-left: auto;
+	margin-right: auto;
+}
+input:invalid {
+  border: 2px dashed red;
+}
+input:valid {
+  border: 1px solid black;
+}
+input:invalid:required {
+  border: 1px solid greenyellow;
+}
+  .main-header {
+  text-align: center;
+ height:20%;
+}
+</style>
+<header class="main-header" role="banner">
+  <img src="../static/wordart.png" alt="Banner Image"/>
+</header>
+<body>
+    <div>
+        <form action="{{ url_for('fibonacciBP.showfi') }}">
+            <input type="submit" value="Fibonacci">
+        </form>
+        <br>
+        <form action="{{ url_for('factorialBP.showf') }}">
+            <input type="submit" value="Factorial">
+        </form>
+        <br>
+        <form action="{{ url_for('trianguloBP.showt') }}">
+            <input type="submit" value="Triangulo">
+        </form>
+        <br>
+        <form action="{{ url_for('circuloBP.showc') }}">
+            <input type="submit" value="Circulo">
+        </form>
+        <br>
+        <form action="{{ url_for('rectanguloBP.showr') }}">
+            <input type="submit" value="Rectangulo">
+        </form>
+
+    </div>
+</body>
+</html>
