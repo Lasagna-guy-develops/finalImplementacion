@@ -26,6 +26,9 @@ input:invalid:required {
 
 <body>
 <form action="" method="POST">
+    {% if error %}
+        <label style="color:red" for="fname">Error: {{ error }}</label><br><br>
+    {% endif %}
   <label for="fname">Ingresar número:</label><br><br>
   <input type="number" min="0" step="1" id="fact" name="fact"><br><br>
   <input type="submit" value="ejecutar">

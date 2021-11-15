@@ -7,16 +7,23 @@ rectanguloBP = Blueprint('rectanguloBP', __name__,
 
 @rectanguloBP.route('/rectangulo', methods=["GET", "POST"])
 def showr():
+    error = None
     if request.method == 'POST':
         l1 = request.form['l1']
         l2 = request.form['l2']
-        print(rectangulo.area(float(l1), float(l2)))
-        print(rectangulo.perimetro(float(l1), float(l2)))
-        return redirect(url_for('rectanguloBP.showir',
-                                area=rectangulo.area(float(l1), float(l2)),
-                                perimetro=rectangulo.perimetro(float(l1), float(l2))))
+        try:
+            l1 = float(l1)
+            l2 = float(l2)
+            if(l1>0 and l2>0):
+                return redirect(url_for('rectanguloBP.showir',
+                                        area=rectangulo.area(l1, l2),
+                                        perimetro=rectangulo.perimetro(l1, l2)))
+            else:
+                error = 'Valores deben ser mayores a 0'
+        except Exception as e:
+            error = 'Valores deben ser números mayores a 0'
 
-    return render_template("Rectangulo.html")
+    return render_template("Rectangulo.html", error=error)
 
 
 @rectanguloBP.route('/InfoRectangulo//<area>/<perimetro>', methods=["GET"])

@@ -7,12 +7,20 @@ fibonacciBP = Blueprint('fibonacciBP', __name__,
 
 @fibonacciBP.route('/fibonacci', methods=["GET", "POST"])
 def showfi():
+    error = None
     if request.method == 'POST':
         fibo = request.form['fibo']
-        return redirect(url_for('fibonacciBP.showifi',
-                                valores=fibonacci.fib(int(fibo))))
+        try:
+            fibo=int(fibo)
+            if(fibo>0):
+                return redirect(url_for('fibonacciBP.showifi',
+                                        valores=fibonacci.fib(fibo)))
+            else:
+                error = 'El número debe ser mayor a 0'
+        except Exception as e:
+            error = 'El número debe ser entero'
 
-    return render_template("Fibonacci.html")
+    return render_template("Fibonacci.html", error=error)
 
 
 @fibonacciBP.route('/InfoFibonacci//<valores>', methods=["GET"])

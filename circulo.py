@@ -7,15 +7,21 @@ circuloBP = Blueprint('circuloBP', __name__,
 
 @circuloBP.route('/circulo', methods=["GET", "POST"])
 def showc():
+    error = None
     if request.method == 'POST':
         radio = request.form['radio']
-        print(circulo.area(float(radio)))
-        print(circulo.perimetro(float(radio)))
-        return redirect(url_for('circuloBP.showic',
-                                area=circulo.area(float(radio)),
-                                perimetro=circulo.perimetro(float(radio))))
+        try:
+            radio=float(radio)
+            if radio > 0:
+                return redirect(url_for('circuloBP.showic',
+                                        area=circulo.area(radio),
+                                        perimetro=circulo.perimetro(radio)))
+            else:
+                error = 'El radio debe ser mayor a 0'
+        except Exception as e:
+            error = 'El radio debe ser un número mayor a 0'
 
-    return render_template("Circulo.html")
+    return render_template("Circulo.html", error=error)
 
 
 @circuloBP.route('/InfoCirculo//<area>/<perimetro>', methods=["GET"])
