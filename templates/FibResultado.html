@@ -37,13 +37,13 @@ input:invalid:required {
 <div>
 {% block content %}
     <br><br><br><br><br><br>
-    <label>Factorial: </label><br><br>
+    <label>Fibonacci: </label><br><br>
     {% for valor in valores %}
         <label> {{ valor }} </label><br>
     {% endfor %}
     <br><br>
     <form action="{{ url_for('fibonacciBP.showfi') }}">
-        <input type="submit" value="Factorial">
+        <input type="submit" value="Fibonacci">
     </form><br>
     <form action="{{ url_for('menu') }}">
         <input type="submit" value="Menu">

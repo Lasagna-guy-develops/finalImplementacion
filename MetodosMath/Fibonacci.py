@@ -4,4 +4,7 @@ def fib(num):
     for _ in range(num - 1):
         a, b = b, a + b
         list.append(b)
-    return list
+    if num==1:
+        return [1]
+    else:
+        return list
