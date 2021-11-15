@@ -1,5 +1,14 @@
 <!DOCTYPE html>
 <html>
+<head>
+        {% if type=="circulo" %}
+            <title>Final implementación - Resultado Círculo</title>
+        {% elif type==triangulo %}
+            <title>Final implementación - Resultado Triangulo</title>
+        {% else %}
+            <title>Final implementación - Resultado Rectangulo</title>
+        {% endif %}
+</head>
 <style>
 html,body {
   height:100%;

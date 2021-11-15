@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
-
+<head>
+	<title>Final implementación - Factorial</title>
+</head>
 <style>
 html,body {
   height:100%;
@@ -30,7 +32,7 @@ input:invalid:required {
         <label style="color:red" for="fname">Error: {{ error }}</label><br><br>
     {% endif %}
   <label for="fname">Ingresar número:</label><br><br>
-  <input type="number" min="0" step="1" id="fact" name="fact"><br><br>
+  <input id="fact" name="fact"><br><br>
   <input type="submit" value="ejecutar">
 </form>
 </body>
